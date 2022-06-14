@@ -1,5 +1,3 @@
 #!/bin/bash
 
-echo Hello
-
-echo Very good code
+Version for my_branch
