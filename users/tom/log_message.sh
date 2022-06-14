@@ -8,5 +8,6 @@ log_message "Hello"
 
 log_message "Goodbye"
 
+log_message "Change 1"
 
-
+log_message "Change 2"
