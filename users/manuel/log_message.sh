@@ -7,5 +7,7 @@ log_message() {
 log_message "Hello"
 log_message "Goodbye"
 
+log_message "New Lines"
+
 
 
