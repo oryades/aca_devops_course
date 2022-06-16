@@ -8,3 +8,5 @@ Commit 2 on my_branch
 function feature1 {
 	echo "feature1"
 }
+
+# Conflict case form subchange_1 branch
