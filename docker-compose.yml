@@ -1,0 +1,9 @@
+services:
+  db:
+    image: postgres
+    environment:
+      restart: always
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - 2172:2172
