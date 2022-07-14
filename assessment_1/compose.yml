@@ -1,0 +1,13 @@
+version: "3.9"
+
+name: postgres_with_compose
+
+services:
+  db:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pgadmin
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: dockerPgDb
