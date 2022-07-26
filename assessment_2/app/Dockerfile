@@ -1,16 +1,13 @@
 FROM node:10-alpine as builder
 
-COPY package.json ./
 
-RUN npm i && mkdir /app && mv ./node_modules ./app
+RUN mkdir /app 
 
 WORKDIR /app
 
 COPY . .
 
-
-
-RUN npm run build
+RUN npm i && npm run build
 
 FROM nginx:alpine
 
