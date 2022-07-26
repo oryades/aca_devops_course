@@ -1,13 +1,11 @@
-FROM node:lts-alpine3.15 AS app
+FROM node:lts-alpine3.15 AS builder
 
-RUN rm -rf node_modules/
+RUN mkdir app/
+WORKDIR app/
+COPY . .
 RUN npm install --silent
 RUN npm run build
 
-
-
 FROM nginx
 
-COPY --from=app /app/build /usr/share/nginx/html
-
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app/build /usr/share/nginx/html
