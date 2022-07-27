@@ -1,13 +1,11 @@
 FROM node as builder
 
-COPY package.json package-lock.json ./
-
-RUN npm install && mkdir /react-ui && mv ./node_modules ./react-ui
-
+RUN mkdir react-ui
 WORKDIR /react-ui
 
 COPY . .
 
+RUN npm install
 RUN npm run build
 
 FROM nginx
