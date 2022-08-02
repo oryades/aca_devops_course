@@ -5,9 +5,9 @@ services:
     container_name: gitlab
     hostname: localhost
     ports:
-    - 443:443
-    - 80:80
-    - 2222:22
+    - "443:443"
+    - "80:80"
+    - "2222:22"
     volumes:
     - gitlab_config:/etc/gitlab
     - gitlab_logs:/var/log/gitlab
