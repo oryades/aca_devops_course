@@ -4,6 +4,7 @@ services:
     # image: yrzr/gitlab-ce-arm64v8 # macos
     image: gitlab/gitlab-ce # linux/windows
     container_name: gitlab
+    hostname: localhost
     ports:
     - 443:443
     - 80:80
