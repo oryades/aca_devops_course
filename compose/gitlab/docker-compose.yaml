@@ -1,0 +1,19 @@
+version: "3"
+services:
+  gitlab:
+    # image: yrzr/gitlab-ce-arm64v8 # macos
+    image: gitlab/gitlab-ce # linux/windows
+    container_name: gitlab
+    ports:
+    - 443:443
+    - 80:80
+    - 22:22
+    volumes:
+    - gitlab_config:/etc/gitlab
+    - gitlab_logs:/var/log/gitlab
+    - gitlab_data:/var/opt/gitlab
+    restart: always
+volumes:
+  gitlab_config:
+  gitlab_logs:
+  gitlab_data:
