@@ -13,7 +13,14 @@ services:
     - gitlab_logs:/var/log/gitlab
     - gitlab_data:/var/opt/gitlab
     restart: always
+  runner:
+    image: gitlab/gitlab-runner
+    container_name: gitlab-runner
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - gitlab_runner_config:/etc/gitlab-runner:Z
 volumes:
   gitlab_config:
   gitlab_logs:
   gitlab_data:
+  gitlab_runner_config:
