@@ -1,4 +1,4 @@
-=== Gitlab Installation Using docker-compose.yaml ===
+# Gitlab Installation Using docker-compose.yaml
 
 1. Open terminal, and go to this docker-compose.yaml directory
 2. Run `docker-compose up` (ignore errors about the docker runner config.toml file, it'll be configured when we register the runner)
@@ -6,7 +6,7 @@
 4. Wait for 2-3 minutes (installing the gitlab containers) and call gitlab.home in the browser.
 5. Use this command to find the root password `docker exec -it gitlab-web grep 'Password:' /etc/gitlab/initial_root_password`, the username is "root". BTW the gitlab container name is `gitlab-web`.
 
-=== GitLab runner configuration ===
+# GitLab runner configuration
 
 1. Go to the terminal and run the following command:
     - `docker exec -it gitlab-runner gitlab-runner register --url "http://gitlab-web" --clone-url "http://gitlab-web"`
