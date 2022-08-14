@@ -6,7 +6,7 @@
 4. Wait for 2-3 minutes (installing the gitlab containers) and call gitlab.home in the browser.
 5. Use this command to find the root password `docker exec -it gitlab-web grep 'Password:' /etc/gitlab/initial_root_password`, the username is "root". BTW the gitlab container name is `gitlab-web`.
 
-# GitLab runner configuration
+# Registering a New Runner on Docker
 
 1. Go to the terminal and run the following command:
     - `docker exec -it gitlab-runner gitlab-runner register --url "http://gitlab-web" --clone-url "http://gitlab-web"`
