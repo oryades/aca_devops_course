@@ -1,0 +1,32 @@
+- name: Update web servers
+  hosts: all
+  remote_user: root
+
+  tasks:
+  - name: Ensure Nginx is at the latest version (Install Nginx)
+    ansible.builtin.apt:
+      name: nginx
+      state: latest
+  - name: Install curl
+    ansible.builtin.apt:
+      name: curl
+  - name: Check if nginx is running
+    ansible.builtin.command: pgrep nginx
+    register: nginx_status
+    changed_when: false
+    ignore_errors: yes
+  - name: Start service nginx, if not started
+    ansible.builtin.command: nginx
+    when: nginx_status.rc == 1
+  - name: Create index.html with hostname 
+    ansible.builtin.template:
+      src: html/index.html.j2
+      dest: /var/www/html/index.html
+  - name: Nginx config file
+    ansible.builtin.copy:
+      src: etc/nginx_default.config
+      dest: /etc/nginx/sites-available/default
+    register: nginx_config
+  - name: Reload nginx if config has changed
+    ansible.builtin.command: nginx -s reload
+    when: nginx_config is changed
