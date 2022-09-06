@@ -37,3 +37,27 @@ resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
   public_key = "${file("~/.ssh/id_rsa.pub")}"
 }
+
+resource "aws_security_group" "allow-all-sg" {
+  name = "allow-all-sg"
+
+  vpc_id = var.vpc_id
+  ingress {
+    cidr_blocks = [
+      "0.0.0.0/0"
+    ]
+    from_port = 22
+    to_port = 22
+    protocol = "tcp"
+  }
+  egress {
+   from_port = 0
+   to_port = 0
+   protocol = "-1"
+   cidr_blocks = ["0.0.0.0/0"]
+ }
+}
+
+data "aws_vpc" "default" {
+  default = true
+}

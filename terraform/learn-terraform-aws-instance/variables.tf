@@ -5,3 +5,5 @@ variable "bucket_name" {
 variable "ssh_public_key" {
   default = ""
 }
+
+variable "vpc_id" {}
