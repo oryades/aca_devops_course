@@ -18,7 +18,15 @@ resource "aws_instance" "app_server" {
   instance_type = "t2.micro"
 
   tags = {
-    Name = "ChangedTag"
+    Name = "my-instance"
   }
 }
 
+resource "aws_s3_bucket" "bucket" {
+  bucket = var.bucket_name
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "Dev"
+  }
+}
