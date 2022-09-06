@@ -6,4 +6,6 @@ variable "ssh_public_key" {
   default = ""
 }
 
-variable "vpc_id" {}
+variable "vpc_id" {
+  default = ""
+}

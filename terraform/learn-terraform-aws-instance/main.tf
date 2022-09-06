@@ -42,6 +42,7 @@ resource "aws_security_group" "allow-all-sg" {
   name = "allow-all-sg"
 
   vpc_id = var.vpc_id
+
   ingress {
     cidr_blocks = [
       "0.0.0.0/0"
@@ -56,8 +57,4 @@ resource "aws_security_group" "allow-all-sg" {
    protocol = "-1"
    cidr_blocks = ["0.0.0.0/0"]
  }
-}
-
-data "aws_vpc" "default" {
-  default = true
 }
