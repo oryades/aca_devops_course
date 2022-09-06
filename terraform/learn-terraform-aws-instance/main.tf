@@ -16,7 +16,6 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-052efd3df9dad4825"
   instance_type = "t2.micro"
-  subnet_id	= "subnet-0897909b3c7f886f8"
 
   tags = {
     Name = "ChangedTag"
