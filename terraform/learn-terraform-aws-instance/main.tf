@@ -19,6 +19,8 @@ resource "aws_instance" "app_server" {
 
   key_name 	= "deployer-key"
 
+  vpc_security_group_ids = [ aws_security_group.allow-all-sg.id ]
+
   tags = {
     Name = "my-instance"
   }
