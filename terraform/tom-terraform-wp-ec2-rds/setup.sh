@@ -21,9 +21,10 @@ sudo add-apt-repository ppa:ondrej/php
 sudo apt update
 
 # Installing PHP with all necessary extensions and mysql client
-sudo apt install -y php8.0 php8.0-imagick php8.0-json php8.0-zip php8.0-gd php8.0-mbstring php-xml php8.0-common php8.0-mysql
+sudo apt install -y php8.0 php8.0-imagick php8.0-json php8.0-zip php8.0-gd php8.0-mbstring php-xml
 sudo apt install -y php8.0-fpm
 sudo apt install -y mysql-client ysql-client-core-8.0
+sudo apt-get install -y php8.0-common php8.0-mysql
 
 # Stop inginx for configuration
 sudo systemctl stop nginx
