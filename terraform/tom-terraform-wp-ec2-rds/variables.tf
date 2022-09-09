@@ -1,6 +1,7 @@
+# Insert your AWS VPC ID for the default = "" attribute, e.g. vpc-078b#########
 variable "TOM_VPC" {
     type = string
-    default = "vpc-078b217f3c71fbc14"
+    default = ""
 }
 
 variable "TOM_PUB_KEY" {
