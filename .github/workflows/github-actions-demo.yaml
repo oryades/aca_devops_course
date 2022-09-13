@@ -10,6 +10,11 @@ jobs:
       image: node:16-alpine
     steps:
     - uses: actions/checkout@v1
+    - name: Cache Gradle packages
+      uses: actions/cache@v3
+      with:
+        path: |
+          node_modules
     - run: pwd && ls && npm install && npm run build
     - name: react-artifact
       uses: actions/upload-artifact@v3
