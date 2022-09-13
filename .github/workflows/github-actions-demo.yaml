@@ -6,7 +6,7 @@ jobs:
     container:
       image: node:16-alpine
     steps:
-    - name: npm install && npm run build
+    - run: npm install && npm run build
     with:
       name: artifact
       path: |
