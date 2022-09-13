@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: amazone/aws-cli
+    needs: build-react-app
     steps:
     - name: Download dist folder
       uses: actions/download-artifact@v3
