@@ -16,5 +16,5 @@ jobs:
       with:
         name: dist-without-markdown
         path: |
-          dist
+          store/dist
 
