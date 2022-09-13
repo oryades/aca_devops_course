@@ -20,7 +20,7 @@ jobs:
   deploy-react-app:
     runs-on: ubuntu-latest
     container:
-      image: amazone/aws-cli
+      image: amazon/aws-cli
     needs: build-react-app
     steps:
     - name: Download dist folder
