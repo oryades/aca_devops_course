@@ -10,12 +10,19 @@ jobs:
       image: node:16-alpine
     steps:
     - uses: actions/checkout@v1
-    - name: Cache Node modules
+    - name: Cache node modules
+      id: cache-nodemodules
       uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
       with:
-        path: |
-          **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+        # caching node_modules
+        path: node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
     - run: pwd && ls && npm install && npm run build
     - name: react-artifact
       uses: actions/upload-artifact@v3
