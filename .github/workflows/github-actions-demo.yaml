@@ -7,8 +7,10 @@ jobs:
       image: node:16-alpine
     steps:
     - run: npm install && npm run build
-      with:
-        name: artifact
-        path: |
-          dist
+    - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
 
