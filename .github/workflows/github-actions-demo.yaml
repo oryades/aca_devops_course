@@ -6,7 +6,7 @@ jobs:
     container:
       image: node:16-alpine
     steps:
-    - run: cd store && npm install && npm run build
+    - run: pwd && ls && cd store && npm install && npm run build
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
