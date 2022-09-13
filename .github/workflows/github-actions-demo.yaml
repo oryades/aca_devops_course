@@ -3,10 +3,9 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    uses: docker://node:16-alpine
     steps:
-      - run: npm install
-      - run: npm run build
+    - run: npm install && npm run build
+      uses: docker://node:16-alpine
     with:
       name: artifact
       path: |
