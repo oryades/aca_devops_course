@@ -3,10 +3,14 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./store
     container:
       image: node:16-alpine
     steps:
-    - run: pwd && ls && cd store && npm install && npm run build
+    - uses: actions/checkout@v1
+    - run: pwd && ls && npm install && npm run build
     - name: Archive production artifacts
       uses: actions/upload-artifact@v3
       with:
