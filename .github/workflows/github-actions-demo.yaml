@@ -15,7 +15,7 @@ jobs:
       with:
         path: |
           **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
     - run: pwd && ls && npm install && npm run build
     - name: react-artifact
       uses: actions/upload-artifact@v3
