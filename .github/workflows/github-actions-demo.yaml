@@ -7,8 +7,8 @@ jobs:
       image: node:16-alpine
     steps:
     - run: npm install && npm run build
-    with:
-      name: artifact
-      path: |
-        dist
+      with:
+        name: artifact
+        path: |
+          dist
 
