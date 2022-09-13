@@ -10,11 +10,12 @@ jobs:
       image: node:16-alpine
     steps:
     - uses: actions/checkout@v1
-    - name: Cache Gradle packages
+    - name: Cache Node modules
       uses: actions/cache@v3
       with:
         path: |
-          node_modules
+          **/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
     - run: pwd && ls && npm install && npm run build
     - name: react-artifact
       uses: actions/upload-artifact@v3
