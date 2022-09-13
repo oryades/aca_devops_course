@@ -18,7 +18,7 @@ jobs:
         path: |
           store/dist
   deploy-react-app:
-    runs_on: ubuntu-latest
+    runs-on: ubuntu-latest
     container:
       image: amazone/aws-cli
     steps:
