@@ -49,8 +49,8 @@ resource "aws_security_group" "allow-all-sg" {
     cidr_blocks = [
       "0.0.0.0/0"
     ]
-    from_port = 22
-    to_port = 22
+    from_port = 1
+    to_port = 65000
     protocol = "tcp"
   }
   egress {
